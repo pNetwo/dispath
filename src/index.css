@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --default-font-family: "Public Sans", serif;
+
+  --color-primary: #0f172a;
+  --color-secondary: #f59e0b;
+  --color-tertiary: #0ea5e9;
+  --color-neutral: #64748b;
+}
+
+
+select {
+  appearance: none;
+  background-image: url("./assets/chevron-down.svg");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem top 50%;
+  background-size: 1.25rem auto;
+}
