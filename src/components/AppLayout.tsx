@@ -13,7 +13,7 @@ export function AppLayout() {
         <Header />
       </div>
 
-      <main className="flex justify-center items-center bg-slate-200 p-8">
+      <main className="flex justify-center items-center bg-slate-100 p-8 ">
         <Outlet />
       </main>
     </div>

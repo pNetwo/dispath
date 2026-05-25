@@ -7,8 +7,9 @@
   --color-secondary: #f59e0b;
   --color-tertiary: #0ea5e9;
   --color-neutral: #64748b;
-}
 
+  --text-xxs: 0.725rem;
+}
 
 select {
   appearance: none;
