@@ -90,21 +90,33 @@ export function Dashboard() {
                 <span className="text-zinc-700 text-xxs ">MOTORISTA</span>
               </div>
 
-              <div>
+              <div className="flex flex-col max-h-72 overflow-y-scroll overflow-hidden rounded-bl-lg">
                 <Service
-                  className="grid grid-cols-5 gap-2 px-3 py-2"
+                  className="grid grid-cols-5 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
                   data={SERVICE_EXAMPLE}
                 />
                 <Service
-                  className="grid grid-cols-5 gap-2 px-3 py-2"
+                  className="grid grid-cols-5 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
                   data={SERVICE_EXAMPLE}
                 />
                 <Service
-                  className="grid grid-cols-5 gap-2 px-3 py-2"
+                  className="grid grid-cols-5 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
                   data={SERVICE_EXAMPLE}
                 />
                 <Service
-                  className="grid grid-cols-5 gap-2 px-3 py-2"
+                  className="grid grid-cols-5 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
+                  data={SERVICE_EXAMPLE}
+                />
+                <Service
+                  className="grid grid-cols-5 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
+                  data={SERVICE_EXAMPLE}
+                />
+                <Service
+                  className="grid grid-cols-5 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
+                  data={SERVICE_EXAMPLE}
+                />
+                <Service
+                  className="grid grid-cols-5 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
                   data={SERVICE_EXAMPLE}
                 />
               </div>

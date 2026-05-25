@@ -12,7 +12,7 @@ type Props = React.ComponentProps<"a"> & {
 
 export function Service({ data, ...rest }: Props) {
   return (
-    <a {...rest}>
+    <a  {...rest}>
       <span className="text-xs font-semibold ">{data.id}</span>
       <span className="text-xs border bg-green-400 rounded-full w-fit px-2">
         {data.status}
