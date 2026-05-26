@@ -1,13 +1,8 @@
-import {
-  Banknote,
-  FileExclamationPoint,
-  RefreshCcw,
-  TrendingUp,
-  TriangleAlert,
-  Truck,
-} from "lucide-react";
 
+
+import { LayoutHeader } from "../components/LayoutHeader";
 import { Service } from "../components/Service";
+import { formatCurrency } from "../utils/formatCurrency";
 
 const SERVICE_EXAMPLE = {
   id: "OS-1234",
@@ -15,61 +10,13 @@ const SERVICE_EXAMPLE = {
   destiny: "Santos",
   tow: "AAA-1111",
   driver: "João",
+  amount: formatCurrency(350.5),
 };
 
 export function Dashboard() {
   return (
     <div className="w-full lg:max-w-5xl h-full flex flex-col">
-      <div className="flex flex-col">
-        <div className="flex flex-col mb-8">
-          <h1 className="text-3xl font-bold text-primary">Visão Geral</h1>
-          <p className=" text-sm font-semibold text-neutral">
-            Status de operaçoes do Dispath em tempo real
-          </p>
-        </div>
-
-        <div className="grid grid-cols-3 gap-4">
-          <div className="w-full p-4 border border-zinc-400 rounded-lg bg-white flex flex-col gap-3   ">
-            <h3 className="uppercase text-sm font-semibold text-zinc-700">
-              Realizados
-            </h3>
-            <span className="text-primary font-bold text-4xl flex justify-between items-center">
-              14
-              <Truck size={32} className="text-zinc-300" />
-            </span>
-            <p className="text-xxs text-cyan-700 flex items-center gap-1">
-              <TrendingUp size={16} />
-              +2 da última hora
-            </p>
-          </div>
-          <div className="w-full p-4 border border-zinc-400 rounded-lg bg-white flex flex-col gap-3   ">
-            <h3 className="uppercase text-sm font-semibold text-zinc-700">
-              Pendentes
-            </h3>
-            <span className="text-primary font-bold text-4xl flex justify-between items-center">
-              14
-              <FileExclamationPoint size={32} className="text-zinc-300" />
-            </span>
-            <p className="text-xxs text-red-700 flex items-center gap-1">
-              <TriangleAlert size={16} />
-              +1 Urgência
-            </p>
-          </div>
-          <div className="w-full p-4 border border-zinc-400 rounded-lg bg-white flex flex-col gap-3   ">
-            <h3 className="uppercase text-sm font-semibold text-zinc-700">
-              Faturamento
-            </h3>
-            <span className="text-primary font-bold text-4xl flex justify-between items-center">
-              14
-              <Banknote size={32} className="text-zinc-300" />
-            </span>
-            <p className="text-xxs text-neutral flex items-center gap-1">
-              <RefreshCcw size={16} />
-              Atualizado a 5m
-            </p>
-          </div>
-        </div>
-      </div>
+      <LayoutHeader/>
 
       <div>
         <div className="mt-12 border border-zinc-400 rounded-lg bg-slate-50">
@@ -78,47 +25,37 @@ export function Dashboard() {
               Ordem de Serviço
             </h1>
             <span className="text-neutral text-sm px-3">
-              Operações ativas e pendentes
+              Operações que estão em andamento
             </span>
 
             <div className="mt-4">
-              <div className="grid grid-cols-5 border-t border-b border-zinc-400 gap-2 px-3 py-2">
+              <div className="grid grid-cols-6 border-t border-b border-zinc-400 gap-2 px-3 py-2 bg-slate-200">
                 <span className="text-zinc-700 text-xxs ">OS</span>
                 <span className="text-zinc-700 text-xxs ">STATUS</span>
                 <span className="text-zinc-700 text-xxs ">DESTINO</span>
                 <span className="text-zinc-700 text-xxs ">GUINCHO</span>
                 <span className="text-zinc-700 text-xxs ">MOTORISTA</span>
+                <span className="text-zinc-700 text-xxs ">Valor</span>
               </div>
 
-              <div className="flex flex-col max-h-72 overflow-y-scroll overflow-hidden rounded-bl-lg">
+              <div className="flex flex-col max-h-76.5 bg-white overflow-y-scroll overflow-hidden">
                 <Service
-                  className="grid grid-cols-5 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
+                  className="grid grid-cols-6 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
                   data={SERVICE_EXAMPLE}
                 />
                 <Service
-                  className="grid grid-cols-5 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
+                  className="grid grid-cols-6 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
                   data={SERVICE_EXAMPLE}
                 />
-                <Service
-                  className="grid grid-cols-5 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
-                  data={SERVICE_EXAMPLE}
-                />
-                <Service
-                  className="grid grid-cols-5 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
-                  data={SERVICE_EXAMPLE}
-                />
-                <Service
-                  className="grid grid-cols-5 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
-                  data={SERVICE_EXAMPLE}
-                />
-                <Service
-                  className="grid grid-cols-5 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
-                  data={SERVICE_EXAMPLE}
-                />
-                <Service
-                  className="grid grid-cols-5 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
-                  data={SERVICE_EXAMPLE}
-                />
+              </div>
+
+              <div className="flex justify-center items-center h-12 bg-slate-200 overflow-hidden rounded-b-lg">
+                <a
+                  href=""
+                  className="text-tertiary hover:opacity-70 hover:drop-shadow-2xl transition ea"
+                >
+                  Mostrar mais
+                </a>
               </div>
             </div>
           </div>
