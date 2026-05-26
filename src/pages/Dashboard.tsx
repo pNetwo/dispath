@@ -1,8 +1,15 @@
-
-
 import { LayoutHeader } from "../components/LayoutHeader";
 import { Service } from "../components/Service";
 import { formatCurrency } from "../utils/formatCurrency";
+
+import {
+  Banknote,
+  ClipboardClock,
+  RefreshCw,
+  TrendingUp,
+  TriangleAlert,
+  Truck,
+} from "lucide-react";
 
 const SERVICE_EXAMPLE = {
   id: "OS-1234",
@@ -16,7 +23,36 @@ const SERVICE_EXAMPLE = {
 export function Dashboard() {
   return (
     <div className="w-full lg:max-w-5xl h-full flex flex-col">
-      <LayoutHeader/>
+      <LayoutHeader
+        title="Visão Geral"
+        subtitle="Status de operaçoes do Dispath em tempo real"
+        cards={[
+          {
+            title: "Serviços",
+            value: "2",
+            iconValue: Truck,
+            iconDescription: TrendingUp,
+            description: "+2 da última hora",
+            descriptionColor: "text-cyan-700",
+          },
+          {
+            title: "Pendentes",
+            value: "2",
+            iconValue: ClipboardClock,
+            iconDescription: TriangleAlert,
+            description: "+2 da última hora",
+            descriptionColor: "text-red-700",
+          },
+          {
+            title: "Fatura",
+            value: formatCurrency(1635.5),
+            iconValue: Banknote,
+            iconDescription: RefreshCw,
+            description: "Última atualização 5min atrás ",
+            descriptionColor: "text-neutral",
+          },
+        ]}
+      />
 
       <div>
         <div className="mt-12 border border-zinc-400 rounded-lg bg-slate-50">
@@ -43,6 +79,34 @@ export function Dashboard() {
                   className="grid grid-cols-6 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
                   data={SERVICE_EXAMPLE}
                 />
+                <Service
+                  className="grid grid-cols-6 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
+                  data={SERVICE_EXAMPLE}
+                />{" "}
+                <Service
+                  className="grid grid-cols-6 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
+                  data={SERVICE_EXAMPLE}
+                />{" "}
+                <Service
+                  className="grid grid-cols-6 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
+                  data={SERVICE_EXAMPLE}
+                />{" "}
+                <Service
+                  className="grid grid-cols-6 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
+                  data={SERVICE_EXAMPLE}
+                />{" "}
+                <Service
+                  className="grid grid-cols-6 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
+                  data={SERVICE_EXAMPLE}
+                />{" "}
+                <Service
+                  className="grid grid-cols-6 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
+                  data={SERVICE_EXAMPLE}
+                />{" "}
+                <Service
+                  className="grid grid-cols-6 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
+                  data={SERVICE_EXAMPLE}
+                />{" "}
                 <Service
                   className="grid grid-cols-6 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
                   data={SERVICE_EXAMPLE}
