@@ -1,8 +1,8 @@
 import { LayoutHeader } from "../components/LayoutHeader";
 import { Service, type ServiceProps } from "../components/Service";
-import { formatCurrency } from "../utils/formatCurrency";
 
 import { Banknote, RefreshCw, TrendingUp, Truck } from "lucide-react";
+import { formatCurrency } from "../utils/formatCurrency";
 
 const SERVICE_EXAMPLE: ServiceProps[] = [
   {
@@ -11,23 +11,15 @@ const SERVICE_EXAMPLE: ServiceProps[] = [
     destiny: "Santos",
     tow: "AAA-1111",
     driver: "João",
-    amount: formatCurrency(350.5),
-  },
-  {
-    id: "OS-1234",
-    status: "Pendente",
-    destiny: "Sorocaba",
-    tow: "AAA-1111",
-    driver: "João",
-    amount: formatCurrency(350.5),
+    amount: 350.5,
   },
   {
     id: "OS-1234",
     status: "Concluído",
-    destiny: "Itapeva",
+    destiny: "Santos",
     tow: "AAA-1111",
     driver: "João",
-    amount: formatCurrency(350.5),
+    amount: 3150.5,
   },
   {
     id: "OS-1234",
@@ -35,53 +27,65 @@ const SERVICE_EXAMPLE: ServiceProps[] = [
     destiny: "Santos",
     tow: "AAA-1111",
     driver: "João",
-    amount: formatCurrency(350.5),
+    amount: 350.5,
+  },
+  {
+    id: "OS-1234",
+    status: "Em andamento",
+    destiny: "Santos",
+    tow: "AAA-1111",
+    driver: "João",
+    amount: 350.5,
+  },
+  {
+    id: "OS-1234",
+    status: "Em andamento",
+    destiny: "Santos",
+    tow: "AAA-1111",
+    driver: "João",
+    amount: 350.5,
   },
   {
     id: "OS-1234",
     status: "Pendente",
-    destiny: "Sorocaba",
+    destiny: "Santos",
     tow: "AAA-1111",
     driver: "João",
-    amount: formatCurrency(350.5),
+    amount: 2350.5,
   },
   {
     id: "OS-1234",
     status: "Concluído",
-    destiny: "Itapeva",
+    destiny: "Santos",
     tow: "AAA-1111",
     driver: "João",
-    amount: formatCurrency(350.5),
+    amount: 3750.5,
   },
   {
     id: "OS-1234",
-    status: "Concluído",
-    destiny: "Itapeva",
+    status: "Em andamento",
+    destiny: "Santos",
     tow: "AAA-1111",
     driver: "João",
-    amount: formatCurrency(350.5),
+    amount: 350.5,
   },
   {
     id: "OS-1234",
-    status: "Concluído",
-    destiny: "Itapeva",
+    status: "Em andamento",
+    destiny: "Santos",
     tow: "AAA-1111",
     driver: "João",
-    amount: formatCurrency(350.5),
-  },
-  {
-    id: "OS-1234",
-    status: "Concluído",
-    destiny: "Itapeva",
-    tow: "AAA-1111",
-    driver: "João",
-    amount: formatCurrency(350.5),
+    amount: 350.5,
   },
 ];
 
 export function AllServices() {
   const allServices = SERVICE_EXAMPLE.length;
-  const invoicing = SERVICE_EXAMPLE[]
+
+  const invoice = SERVICE_EXAMPLE.reduce(
+    (acc, service) => acc + service.amount,
+    0,
+  );
 
   return (
     <div className="w-full lg:max-w-5xl h-full flex flex-col">
@@ -100,7 +104,7 @@ export function AllServices() {
 
           {
             title: "Fatura Total",
-            value: `R$ ${formatCurrency(23635.5)}`,
+            value: formatCurrency(invoice),
             iconValue: Banknote,
             iconDescription: RefreshCw,
             description: "Última atualização 5min atrás ",

@@ -1,6 +1,5 @@
 import { LayoutHeader } from "../components/LayoutHeader";
 import { Service, type ServiceProps } from "../components/Service";
-import { formatCurrency } from "../utils/formatCurrency";
 
 import {
   Banknote,
@@ -10,6 +9,7 @@ import {
   TriangleAlert,
   Truck,
 } from "lucide-react";
+import { formatCurrency } from "../utils/formatCurrency";
 
 const SERVICE_EXAMPLE: ServiceProps[] = [
   {
@@ -18,27 +18,60 @@ const SERVICE_EXAMPLE: ServiceProps[] = [
     destiny: "Santos",
     tow: "AAA-1111",
     driver: "João",
-    amount: formatCurrency(350.5),
+    amount: 350.5,
   },
   {
     id: "OS-1234",
     status: "Pendente",
-    destiny: "Sorocaba",
+    destiny: "Santos",
     tow: "AAA-1111",
     driver: "João",
-    amount: formatCurrency(350.5),
+    amount: 350.5,
+  },
+  {
+    id: "OS-1234",
+    status: "Em andamento",
+    destiny: "Santos",
+    tow: "AAA-1111",
+    driver: "João",
+    amount: 350.5,
+  },
+  {
+    id: "OS-1234",
+    status: "Pendente",
+    destiny: "Santos",
+    tow: "AAA-1111",
+    driver: "João",
+    amount: 350.5,
+  },
+  {
+    id: "OS-1234",
+    status: "Em andamento",
+    destiny: "Santos",
+    tow: "AAA-1111",
+    driver: "João",
+    amount: 350.5,
   },
   {
     id: "OS-1234",
     status: "Concluído",
-    destiny: "Itapeva",
+    destiny: "Barueri",
     tow: "AAA-1111",
     driver: "João",
-    amount: formatCurrency(350.5),
+    amount: 350.5,
   },
 ];
 
 export function Dashboard() {
+  const allServices = SERVICE_EXAMPLE.length;
+  const schedule = SERVICE_EXAMPLE.filter(
+    (service) => service.status === "Pendente",
+  ).length;
+  const invoice = SERVICE_EXAMPLE.reduce(
+    (acc, service) => acc + service.amount,
+    0,
+  );
+
   return (
     <div className="w-full lg:max-w-5xl h-full flex flex-col">
       <LayoutHeader
@@ -47,7 +80,7 @@ export function Dashboard() {
         cards={[
           {
             title: "Serviços",
-            value: "7",
+            value: allServices.toString(),
             iconValue: Truck,
             iconDescription: TrendingUp,
             description: "+2 da última hora",
@@ -55,7 +88,7 @@ export function Dashboard() {
           },
           {
             title: "Agendados",
-            value: "2",
+            value: schedule.toString(),
             iconValue: ClipboardClock,
             iconDescription: TriangleAlert,
             description: "Requer atenção",
@@ -63,7 +96,7 @@ export function Dashboard() {
           },
           {
             title: "Fatura",
-            value: `R$ ${formatCurrency(1635.5)}`,
+            value: formatCurrency(invoice),
             iconValue: Banknote,
             iconDescription: RefreshCw,
             description: "Última atualização 5min atrás ",

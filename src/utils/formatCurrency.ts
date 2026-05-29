@@ -4,5 +4,5 @@ export function formatCurrency(value: number) {
     currency: "BRL",
   });
 
-  return currency.format(value).replace("R$", "");
+  return currency.format(value);
 }

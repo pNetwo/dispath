@@ -1,10 +1,10 @@
 export type ServiceProps = {
   id: string;
-  status?: "Em andamento" | "Pendente" | "Concluído";
+  status: string ;
   destiny: string;
   tow: string;
   driver: string;
-  amount: string;
+  amount: number;
 };
 
 type Props = React.ComponentProps<"a"> & {
