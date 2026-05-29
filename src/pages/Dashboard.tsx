@@ -1,5 +1,5 @@
 import { LayoutHeader } from "../components/LayoutHeader";
-import { Service } from "../components/Service";
+import { Service, type ServiceProps } from "../components/Service";
 import { formatCurrency } from "../utils/formatCurrency";
 
 import {
@@ -11,14 +11,32 @@ import {
   Truck,
 } from "lucide-react";
 
-const SERVICE_EXAMPLE = {
-  id: "OS-1234",
-  status: "Em Rota",
-  destiny: "Santos",
-  tow: "AAA-1111",
-  driver: "João",
-  amount: formatCurrency(350.5),
-};
+const SERVICE_EXAMPLE: ServiceProps[] = [
+  {
+    id: "OS-1234",
+    status: "Em andamento",
+    destiny: "Santos",
+    tow: "AAA-1111",
+    driver: "João",
+    amount: formatCurrency(350.5),
+  },
+  {
+    id: "OS-1234",
+    status: "Pendente",
+    destiny: "Sorocaba",
+    tow: "AAA-1111",
+    driver: "João",
+    amount: formatCurrency(350.5),
+  },
+  {
+    id: "OS-1234",
+    status: "Concluído",
+    destiny: "Itapeva",
+    tow: "AAA-1111",
+    driver: "João",
+    amount: formatCurrency(350.5),
+  },
+];
 
 export function Dashboard() {
   return (
@@ -75,42 +93,17 @@ export function Dashboard() {
               </div>
 
               <div className="flex flex-col max-h-76.5 bg-white overflow-y-scroll overflow-hidden">
-                <Service
-                  className="grid grid-cols-6 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
-                  data={SERVICE_EXAMPLE}
-                />
-                <Service
-                  className="grid grid-cols-6 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
-                  data={SERVICE_EXAMPLE}
-                />{" "}
-                <Service
-                  className="grid grid-cols-6 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
-                  data={SERVICE_EXAMPLE}
-                />{" "}
-                <Service
-                  className="grid grid-cols-6 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
-                  data={SERVICE_EXAMPLE}
-                />{" "}
-                <Service
-                  className="grid grid-cols-6 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
-                  data={SERVICE_EXAMPLE}
-                />{" "}
-                <Service
-                  className="grid grid-cols-6 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
-                  data={SERVICE_EXAMPLE}
-                />{" "}
-                <Service
-                  className="grid grid-cols-6 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
-                  data={SERVICE_EXAMPLE}
-                />{" "}
-                <Service
-                  className="grid grid-cols-6 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
-                  data={SERVICE_EXAMPLE}
-                />{" "}
-                <Service
-                  className="grid grid-cols-6 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
-                  data={SERVICE_EXAMPLE}
-                />
+                {SERVICE_EXAMPLE.filter(
+                  (service) =>
+                    service.status === "Em andamento" ||
+                    service.status === "Pendente",
+                ).map((service) => (
+                  <Service
+                    key={service.id}
+                    className="grid grid-cols-6 gap-2 p-4 hover:bg-slate-300 border-b border-zinc-400 transition ease-linear hover:cursor-pointer"
+                    data={service}
+                  />
+                ))}
               </div>
 
               <div className="flex justify-center items-center h-12 bg-slate-200 overflow-hidden rounded-b-lg">
