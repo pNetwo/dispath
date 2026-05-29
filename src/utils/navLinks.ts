@@ -1,6 +1,8 @@
 import {
   ClipboardCheck,
+  Headset,
   LayoutDashboard,
+  Settings,
   Truck,
   Users,
   type LucideIcon,
@@ -13,8 +15,9 @@ export type NavLink = {
 };
 
 export const navLinks: NavLink[] = [
+  // Nav Links
   {
-    href: "/dashboard",
+    href: "/",
     label: "Painel",
     icon: LayoutDashboard,
   },
@@ -32,5 +35,18 @@ export const navLinks: NavLink[] = [
     href: "/drivers",
     label: "Motoristas",
     icon: Users,
+  },
+
+  // Support Links
+  {
+    href: "/support",
+    label: "Suporte",
+    icon: Headset,
+  },
+
+  {
+    href: "/config",
+    label: "Configuração",
+    icon: Settings,
   },
 ];

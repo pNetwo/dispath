@@ -2,14 +2,7 @@ import { LayoutHeader } from "../components/LayoutHeader";
 import { Service } from "../components/Service";
 import { formatCurrency } from "../utils/formatCurrency";
 
-import {
-  Banknote,
-  ClipboardClock,
-  RefreshCw,
-  TrendingUp,
-  TriangleAlert,
-  Truck,
-} from "lucide-react";
+import { Banknote, RefreshCw, TrendingUp, Truck } from "lucide-react";
 
 const SERVICE_EXAMPLE = {
   id: "OS-1234",
@@ -20,32 +13,25 @@ const SERVICE_EXAMPLE = {
   amount: formatCurrency(350.5),
 };
 
-export function Dashboard() {
+export function AllServices() {
   return (
     <div className="w-full lg:max-w-5xl h-full flex flex-col">
       <LayoutHeader
-        title="Visão Geral de Hoje"
-        subtitle="Status de operaçoes do Dispath em tempo real"
+        title="Visão Geral do Mês"
+        subtitle="Status de operaçoes do Dispath mensal"
         cards={[
           {
-            title: "Serviços",
-            value: "7",
+            title: "Total de Serviços",
+            value: "48",
             iconValue: Truck,
             iconDescription: TrendingUp,
-            description: "+2 da última hora",
+            description: "+23 do último mês",
             descriptionColor: "text-cyan-700",
           },
+
           {
-            title: "Agendados",
-            value: "2",
-            iconValue: ClipboardClock,
-            iconDescription: TriangleAlert,
-            description: "Requer atenção",
-            descriptionColor: "text-secondary",
-          },
-          {
-            title: "Fatura",
-            value: `R$ ${formatCurrency(1635.5)}`,
+            title: "Fatura Total",
+            value: `R$ ${formatCurrency(23635.5)}`,
             iconValue: Banknote,
             iconDescription: RefreshCw,
             description: "Última atualização 5min atrás ",
