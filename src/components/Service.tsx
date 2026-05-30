@@ -28,7 +28,7 @@ export function Service({ data, ...rest }: Props) {
       <span
         className={`text-xs border rounded-full w-fit px-2 ${statusConfig[status]}`}
       >
-        {status}
+        ● {status}
       </span>
       <span className="text-xs font-semibold">{data.destiny}</span>
       <span className="text-xs font-semibold">{data.tow}</span>

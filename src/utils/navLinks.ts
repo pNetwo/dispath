@@ -27,7 +27,7 @@ export const navLinks: NavLink[] = [
     icon: ClipboardCheck,
   },
   {
-    href: "/fleet",
+    href: "/fleets",
     label: "Frotas",
     icon: Truck,
   },

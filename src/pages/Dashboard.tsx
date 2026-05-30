@@ -22,6 +22,22 @@ const SERVICE_EXAMPLE: ServiceProps[] = [
   },
   {
     id: "OS-1234",
+    status: "Em andamento",
+    destiny: "Santos",
+    tow: "AAA-1111",
+    driver: "Claudio",
+    amount: 350.5,
+  },
+  {
+    id: "OS-1234",
+    status: "Em andamento",
+    destiny: "Santos",
+    tow: "AAA-1111",
+    driver: "Claudio",
+    amount: 350.5,
+  },
+  {
+    id: "OS-1234",
     status: "Pendente",
     destiny: "Santos",
     tow: "AAA-1111",
@@ -36,10 +52,36 @@ const SERVICE_EXAMPLE: ServiceProps[] = [
     driver: "Claudio",
     amount: 350.5,
   },
+  {
+    id: "OS-1234",
+    status: "Concluído",
+    destiny: "Santos",
+    tow: "AAA-1111",
+    driver: "Claudio",
+    amount: 350.5,
+  },
+  {
+    id: "OS-1234",
+    status: "Pendente",
+    destiny: "Santos",
+    tow: "AAA-1111",
+    driver: "Claudio",
+    amount: 5350.5,
+  },
+  {
+    id: "OS-1234",
+    status: "Pendente",
+    destiny: "Santos",
+    tow: "AAA-1111",
+    driver: "Claudio",
+    amount: 1350.5,
+  },
 ];
 
 export function Dashboard() {
-  const allServices = SERVICE_EXAMPLE.length;
+  const allServices = SERVICE_EXAMPLE.filter(
+    (service) => service.status !== "Concluído",
+  ).length;
   const schedule = SERVICE_EXAMPLE.filter(
     (service) => service.status === "Pendente",
   ).length;
