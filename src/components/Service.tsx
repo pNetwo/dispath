@@ -1,6 +1,8 @@
+import { formatCurrency } from "../utils/formatCurrency";
+
 export type ServiceProps = {
   id: string;
-  status: string ;
+  status: "Em andamento" | "Pendente" | "Concluído";
   destiny: string;
   tow: string;
   driver: string;
@@ -33,7 +35,7 @@ export function Service({ data, ...rest }: Props) {
       <span className="text-xs font-semibold">{data.driver}</span>
       <span className="text-xs font-semibold">
         <small className="font-semibold text-neutral">R$ </small>
-        {data.amount}
+        {formatCurrency(data.amount).replace("R$", "")}
       </span>
     </a>
   );

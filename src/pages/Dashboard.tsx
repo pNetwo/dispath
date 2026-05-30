@@ -17,7 +17,7 @@ const SERVICE_EXAMPLE: ServiceProps[] = [
     status: "Em andamento",
     destiny: "Santos",
     tow: "AAA-1111",
-    driver: "João",
+    driver: "Claudio",
     amount: 350.5,
   },
   {
@@ -25,39 +25,15 @@ const SERVICE_EXAMPLE: ServiceProps[] = [
     status: "Pendente",
     destiny: "Santos",
     tow: "AAA-1111",
-    driver: "João",
-    amount: 350.5,
-  },
-  {
-    id: "OS-1234",
-    status: "Em andamento",
-    destiny: "Santos",
-    tow: "AAA-1111",
-    driver: "João",
-    amount: 350.5,
-  },
-  {
-    id: "OS-1234",
-    status: "Pendente",
-    destiny: "Santos",
-    tow: "AAA-1111",
-    driver: "João",
-    amount: 350.5,
-  },
-  {
-    id: "OS-1234",
-    status: "Em andamento",
-    destiny: "Santos",
-    tow: "AAA-1111",
-    driver: "João",
+    driver: "Claudio",
     amount: 350.5,
   },
   {
     id: "OS-1234",
     status: "Concluído",
-    destiny: "Barueri",
+    destiny: "Santos",
     tow: "AAA-1111",
-    driver: "João",
+    driver: "Claudio",
     amount: 350.5,
   },
 ];
@@ -67,10 +43,9 @@ export function Dashboard() {
   const schedule = SERVICE_EXAMPLE.filter(
     (service) => service.status === "Pendente",
   ).length;
-  const invoice = SERVICE_EXAMPLE.reduce(
-    (acc, service) => acc + service.amount,
-    0,
-  );
+  const invoice = SERVICE_EXAMPLE.filter(
+    (service) => service.status !== "Concluído",
+  ).reduce((acc, service) => acc + service.amount, 0);
 
   return (
     <div className="w-full lg:max-w-5xl h-full flex flex-col">
