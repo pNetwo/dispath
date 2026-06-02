@@ -9,6 +9,9 @@ import {
   TriangleAlert,
   Truck,
 } from "lucide-react";
+import { useState } from "react";
+import { Input } from "../components/Input";
+import { Pagination } from "../components/Pagination";
 import { formatCurrency } from "../utils/formatCurrency";
 
 const SERVICE_EXAMPLE: ServiceProps[] = [
@@ -76,9 +79,42 @@ const SERVICE_EXAMPLE: ServiceProps[] = [
     driver: "Claudio",
     amount: 1350.5,
   },
+  {
+    id: "OS-1234",
+    status: "Pendente",
+    destiny: "Santos",
+    tow: "AAA-1111",
+    driver: "Claudio",
+    amount: 1350.5,
+  },
 ];
 
 export function Dashboard() {
+  const [searchService, setSearchService] = useState("");
+
+  const [page, setPage] = useState(1);
+  const [totalOfPage, setTotalOfPage] = useState(10);
+
+  function fetchServices(e: React.SubmitEvent) {
+    e.preventDefault();
+
+    console.log(searchService);
+  }
+
+  function handlePagination(action: "next" | "previous") {
+    setPage((prevPage) => {
+      if (action === "next" && prevPage < totalOfPage) {
+        return prevPage + 1;
+      }
+
+      if (action === "previous" && prevPage > 1) {
+        return prevPage - 1;
+      }
+
+      return prevPage;
+    });
+  }
+
   const allServices = SERVICE_EXAMPLE.filter(
     (service) => service.status !== "Concluído",
   ).length;
@@ -125,12 +161,24 @@ export function Dashboard() {
       <div>
         <div className="mt-12 border border-zinc-400 rounded-lg bg-slate-50">
           <div>
-            <h1 className="text-primary text-2xl font-semibold mt-3 px-3">
-              Ordem de Serviço
-            </h1>
-            <span className="text-neutral text-sm px-3">
-              Operações que estão em andamento
-            </span>
+            <div className="flex justify-between items-center">
+              <div>
+                <h1 className="text-primary text-2xl font-semibold mt-3 px-3">
+                  Ordem de Serviço
+                </h1>
+                <span className="text-neutral text-sm px-3">
+                  Operações que estão em andamento
+                </span>
+              </div>
+              <form onSubmit={fetchServices} className="pt-4 px-4">
+                <Input
+                  value={searchService}
+                  onChange={(e) => setSearchService(e.target.value)}
+                  placeholder="Pesquise por serviços, frotas e motoristas..."
+                  className="w-65 lg:w-96 h-10 text-primary text-xs bg-slate-100 border-gray-300 p-2 border rounded-lg outline-none focus:border focus:border-primary"
+                />
+              </form>
+            </div>
 
             <div className="mt-4">
               <div className="grid grid-cols-6 border-t border-b border-zinc-400 gap-2 px-3 py-2 bg-slate-200">
@@ -155,13 +203,14 @@ export function Dashboard() {
                   />
                 ))}
               </div>
-
-              <div className="flex justify-center items-center h-12 bg-slate-200 overflow-hidden rounded-b-lg">
-                <div className="flex justify-center items-center gap-2">
-                  <Truck />
-                  <span className="italic">Dispath</span>
-                </div>
-              </div>
+            </div>
+            <div className="flex justify-center items-center h-12 bg-slate-200">
+              <Pagination
+                current={page}
+                total={totalOfPage}
+                onNext={() => handlePagination("next")}
+                onPrevious={() => handlePagination("previous")}
+              />
             </div>
           </div>
         </div>

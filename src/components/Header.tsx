@@ -1,14 +1,35 @@
 import { Bell, CircleQuestionMark, LogOut } from "lucide-react";
-import { Input } from "./Input";
+
+import { useEffect, useState } from "react";
 
 export function Header() {
+  const [dateTime, setDateTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDateTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <header className="mt-6 flex justify-between items-center">
-      <div>
-        <Input
-          placeholder="Pesquise por serviços, frotas e motoristas..."
-          className="w-65 lg:w-96 h-10 text-primary text-xs bg-slate-100 border-gray-300 p-2 border rounded-lg outline-none focus:border focus:border-primary"
-        />
+      <div className="flex flex-col">
+        <span className="text-xs text-neutral uppercase tracking-wide">
+          {dateTime.toLocaleDateString("pt-BR", {
+            weekday: "long",
+            day: "2-digit",
+            month: "long",
+          })}
+        </span>
+        <span className="text-lg font-bold text-primary tabular-nums">
+          {dateTime.toLocaleTimeString("pt-BR", {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+          })}
+        </span>
       </div>
       <div className="flex justify-center items-center gap-4">
         <Bell className="text-neutral cursor-pointer hover:text-primary transition ease-linear" />

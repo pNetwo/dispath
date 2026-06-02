@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { Button } from "../components/Button";
 import { Input } from "../components/Input";
 import { Select } from "../components/Select";
@@ -19,9 +19,14 @@ export function ServiceOrders() {
   const [filename, setFilename] = useState<File | null>(null);
 
   const navigate = useNavigate();
+  const params = useParams<{ id: string }>();
 
   function onSubmit(e: React.SubmitEvent) {
     e.preventDefault();
+
+    if (params.id) {
+      return navigate(-1);
+    }
 
     navigate("/confirm", {
       state: {
@@ -54,6 +59,7 @@ export function ServiceOrders() {
           legend="Motorista"
           value={driver}
           onChange={(e) => setDriver(e.target.value)}
+          disabled={!!params.id}
         >
           {DRIVERS.map((driver) => (
             <option>{driver.name}</option>
@@ -64,6 +70,7 @@ export function ServiceOrders() {
           legend="Seguradora"
           value={insurer}
           onChange={(e) => setInsurer(e.target.value)}
+          disabled={!!params.id}
         >
           {INSURERS.map((insurer) => (
             <option>{insurer.name}</option>
@@ -77,6 +84,7 @@ export function ServiceOrders() {
           legend="Guincho"
           value={tow}
           onChange={(e) => setTow(e.target.value)}
+          disabled={!!params.id}
         >
           {TOWTRUCKS.map((tow) => (
             <option>
@@ -91,6 +99,7 @@ export function ServiceOrders() {
           placeholder="Destino do serviço"
           value={destiny}
           onChange={(e) => setDesteny(e.target.value)}
+          disabled={!!params.id}
         />
       </div>
 
@@ -101,6 +110,7 @@ export function ServiceOrders() {
           legend="KM total"
           placeholder=""
           onChange={(e) => setKm(e.target.value)}
+          disabled={!!params.id}
           className="w-full p-2 border border-gray-300 rounded-lg text-sm font-semibold focus:border-primary outline-none"
         />
 
@@ -110,6 +120,7 @@ export function ServiceOrders() {
           placeholder="R$"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
+          disabled={!!params.id}
         />
       </div>
 
@@ -117,11 +128,12 @@ export function ServiceOrders() {
         <Upload
           filename={filename && filename.name}
           onChange={(e) => e.target.files && setFilename(e.target.files[0])}
+          disabled={!!params.id}
         />
       </div>
 
       <Button type="submit" isLoading={isLoading}>
-        Enviar
+        {params.id ? "Voltar" : "Enviar"}
       </Button>
     </form>
   );
