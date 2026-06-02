@@ -1,3 +1,4 @@
+import { File } from "lucide-react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { Button } from "../components/Button";
@@ -124,13 +125,26 @@ export function ServiceOrders() {
         />
       </div>
 
-      <div>
-        <Upload
-          filename={filename && filename.name}
-          onChange={(e) => e.target.files && setFilename(e.target.files[0])}
-          disabled={!!params.id}
-        />
-      </div>
+      {params.id ? (
+        <div className="flex justify-center items-center">
+          <a
+            href=""
+            target="_blank"
+            className="text-sm font-semibold flex justify-center items-center gap-2 text-primary hover:opacity-80 transition ease-linear"
+          >
+            <File className="text-primary" />
+            Abrir comprovante
+          </a>
+        </div>
+      ) : (
+        <div>
+          <Upload
+            filename={filename && filename.name}
+            onChange={(e) => e.target.files && setFilename(e.target.files[0])}
+            disabled={!!params.id}
+          />
+        </div>
+      )}
 
       <Button type="submit" isLoading={isLoading}>
         {params.id ? "Voltar" : "Enviar"}
