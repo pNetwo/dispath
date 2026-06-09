@@ -2,7 +2,7 @@
 
 Um aplicativo de gerenciamento de serviços e frotas.
 
-![Preview do Projeto](assets/screens/signin.png)
+![Preview do Projeto](src/assets/screens/signin.png)
 
 ## 📋 Descrição
 
