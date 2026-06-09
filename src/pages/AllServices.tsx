@@ -9,12 +9,44 @@ import { formatCurrency } from "../utils/formatCurrency";
 
 const SERVICE_EXAMPLE: ServiceProps[] = [
   {
-    id: `12`,
+    id: "OS-0001",
     status: "Em andamento",
-    destiny: "Santos",
+    destiny: "São Paulo",
     tow: "AAA-1111",
-    driver: "João",
-    amount: 350.5,
+    driver: "Carlos Silva",
+    amount: 860.5,
+  },
+  {
+    id: "OS-0002",
+    status: "Em andamento",
+    destiny: "Curitiba",
+    tow: "BBB-2222",
+    driver: "João Souza",
+    amount: 723.4,
+  },
+  {
+    id: "OS-0003",
+    status: "Em andamento",
+    destiny: "Itapeva",
+    tow: "CCC-3333",
+    driver: "Pedro Oliveira",
+    amount: 250,
+  },
+  {
+    id: "OS-0004",
+    status: "Pendente",
+    destiny: "Itapeva",
+    tow: "AAA-1111",
+    driver: "Marcos Costa",
+    amount: 250,
+  },
+  {
+    id: "OS-0005",
+    status: "Concluído",
+    destiny: "Sorocaba",
+    tow: "BBB-2222",
+    driver: "Lucas Santos",
+    amount: 548.3,
   },
 ];
 
@@ -63,7 +95,7 @@ export function AllServices() {
             value: allServices.toString(),
             iconValue: Truck,
             iconDescription: TrendingUp,
-            description: "+23 do último mês",
+            description: "+3 do último mês",
             descriptionColor: "text-cyan-700",
           },
 
@@ -87,7 +119,7 @@ export function AllServices() {
                   Ordem de Serviço
                 </h1>
                 <span className="text-neutral text-sm px-3">
-                  Operações que estão em andamento
+                  Lista das operações realizadas
                 </span>
               </div>
               <form onSubmit={fetchServices} className="pt-4 px-4">

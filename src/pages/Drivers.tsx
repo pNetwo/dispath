@@ -40,7 +40,7 @@ export function Drivers() {
         cards={[
           {
             title: "Motoristas",
-            value: "15",
+            value: "8",
             iconValue: Truck,
             iconDescription: User,
             description: "Disponíveis",

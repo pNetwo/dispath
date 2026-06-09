@@ -54,7 +54,7 @@ export function Fleets() {
         cards={[
           {
             title: "Frota",
-            value: "20",
+            value: "6",
             iconValue: Truck,
             iconDescription: ArrowUp,
             description: "+2 do último mês",
@@ -62,7 +62,7 @@ export function Fleets() {
           },
           {
             title: "Disponíveis",
-            value: "13",
+            value: "4",
             iconValue: Truck,
             iconDescription: Truck,
             description: "Disponiveis para viagem",
@@ -70,10 +70,10 @@ export function Fleets() {
           },
           {
             title: "Manutenção",
-            value: "3",
+            value: "2",
             iconValue: Truck,
             iconDescription: TriangleAlert,
-            description: "Última atualização 5min atrás ",
+            description: "Verificar com Urgência ",
             descriptionColor: "text-red-700",
           },
         ]}
