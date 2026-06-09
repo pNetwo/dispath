@@ -1,73 +1,67 @@
-# React + TypeScript + Vite
+# Numbers Draw
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um aplicativo de gerenciamento de serviços e frotas.
 
-Currently, two official plugins are available:
+![Preview do Projeto](assets/screens/signin.png)(assets/screens/signup.png)(assets/screens/dashboard.png)(assets/screens/service.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📋 Descrição
 
-## React Compiler
+O Numbers Draw é uma ferramenta simples e intuitiva que permite aos usuários sortear números aleatórios dentro de um intervalo personalizado. Ideal para sorteios, jogos, decisões aleatórias e qualquer situação que precise de geração de números randômicos.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Funcionalidades
 
-## Expanding the ESLint configuration
+- Sorteio de múltiplos números simultaneamente
+- Definição de intervalo personalizado (mínimo e máximo)
+- Opção para usar os mesmos números
+- Animações suaves na exibição dos resultados
+- Design responsivo e moderno
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Tecnologias Utilizadas
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Frontend
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **HTML5** - Estrutura semântica do conteúdo
+- **CSS3** - Estilização e design responsivo com organização modular
+- **JavaScript** - Lógica de interação e geração de números aleatórios
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Recursos Adicionais
+
+- **Google Fonts** - Tipografia (Inter, Roboto Flex, Roboto Mono, Sora)
+- **SVG Icons** - Ícones vetoriais customizados
+
+## 📁 Estrutura do Projeto
+
+```
+numbers-draw/
+├── index.html          # Página principal
+├── script.js           # Lógica JavaScript
+├── styles/             # Arquivos CSS organizados
+│   ├── index.css       # Estilo principal
+│   ├── global.css      # Estilos globais
+│   ├── header.css      # Cabeçalho
+│   ├── main.css        # Conteúdo principal
+│   ├── results.css     # Resultados
+│   ├── footer.css      # Rodapé
+│   ├── logo.css        # Logo
+│   └── utility.css     # Utilitários
+└── assets/
+    └── icons/          # Ícones SVG
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🎯 Como Funciona
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. O usuário define a quantidade de números a sortear
+2. Define o intervalo (valor mínimo e máximo)
+3. Opcionalmente, pode ativar a opção "usar os mesmos números"
+4. Clica em "Sortear" e vê os resultados com animações
+5. Pode sortear novamente ou reiniciar o processo
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## ✨ Validações
+
+- Impede uso do número 0
+- Garante que valor máximo seja maior que mínimo
+- Interface amigável com mensagens de erro claras
+
+---
+
+Desenvolvido por Paulo Neto em estudo da rocketseat
